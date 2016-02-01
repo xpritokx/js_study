@@ -1,0 +1,38 @@
+var car = {
+	speedometer: 0,
+  setSpeed: function(val) {
+  	this.setSpeedometer = val;
+  	return this
+  },
+  getSpeed: function() {
+  	return this
+  },
+  clearSpeed: function() {
+  	this.setSpeedometer = 0;
+  	return this
+  },
+}
+
+Object.defineProperty(car,"setSpeedometer",{
+	set: function(val){
+  	this.speedometer = val;
+  },
+  get: function(){
+  	return this.speedometer;
+  }
+})
+
+Object.defineProperty(car,"getSpeedometer",{
+  get: function(){
+  	return this.speedometer;
+  }
+})
+
+Object.defineProperty(car,"clearSpeedometer",{
+  get: function(){
+  	this.speedometer = 0;
+  	return this.speedometer;
+  }
+})
+
+alert(car.setSpeed(200).setSpeed(300).clearSpeed().getSpeed().getSpeedometer);
